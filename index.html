@@ -47,7 +47,7 @@
                             </div>
                             <input id="amount" class="form-control form-control-lg" type="number" placeholder="Enter Amount">
 
-                            <input class="my-2 btn btn-primary" type="submit" value="Submitt" onclick="findValue(parseInt(document.getElementById('amount').value))">
+                            <input class="my-2 btn btn-primary" type="submit" value="Submitt" onclick="findValue(parseInt(document.getElementById('amount').value)) && valuesTotal()">
 
                         </form>
                     </div>
@@ -69,7 +69,7 @@
                             </tr>
                             <tr>
                                 <td colspan="2"><strong>Total</strong></td>
-                                <td id="total-trialBalance"><strong>0</strong></td>
+                                <td id="total-trialBalanceDr"><strong>0</strong></td>
 
                             </tr>
                             <tr>
@@ -84,7 +84,7 @@
                             </tr>
                             <tr>
                                 <td colspan="2"><strong>Total</strong></td>
-                                <td><strong>0</strong></td>
+                                <td id="total-trialBalanceCr"><strong>0</strong></td>
 
                             </tr>
 
@@ -107,7 +107,7 @@
                             </tr>
                             <tr>
                                 <td colspan="2"><strong>Total</strong></td>
-                                <td><strong>0</strong></td>
+                                <td id="total-ProfitLossCr"><strong>0</strong></td>
 
                             </tr>
                             <tr>
@@ -117,13 +117,13 @@
                             </tr>
                             <tr>
                                 <td colspan="2"><strong>Total</strong></td>
-                                <td><strong>0</strong></td>
+                                <td id="total-ProfitLossDr"><strong>0</strong></td>
 
                             </tr>
 
                             <tr>
                                 <td colspan="2"><strong>Profit / Loss</strong></td>
-                                <td><strong>0</strong></td>
+                                <td id="profitLoss"><strong>0</strong></td>
 
                             </tr>
 

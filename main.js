@@ -19,12 +19,61 @@ let equity = {
     debit: 0,
     credit: 0
 };
+let finalValues = {
+    expenses: 0,
+    assets: 0,
+    incomes: 0,
+    liabilities: 0,
+    equity: 0
+}
+let totals = {
+    trialBalanceAsset: 0,
+    trialBalanceEquityLiability: 0,
+    profitLossIncome: 0,
+    profitLossExpense: 0
+
+};
+let profitLoss = 0;
+
+
+
+// formulas to find the final value or heads
+function expensesValue() {
+    finalValues.expenses = expenses.debit - expenses.credit;
+    document.getElementById("exp").innerHTML = finalValues.expenses;
+}
+
+function assetsValue() {
+    finalValues.assets = assets.debit - assets.credit;
+    document.getElementById("ass").innerHTML = finalValues.assets;
+}
+
+function incomeValue() {
+    finalValues.incomes = incomes.credit - incomes.debit;
+    document.getElementById("inc").innerHTML = finalValues.incomes;
+}
+
+function equityValue() {
+    finalValues.equity = equity.credit - equity.debit;
+    document.getElementById("equity").innerHTML = finalValues.equity;
+
+}
+
+function liabilitiesValue() {
+    finalValues.liabilities = liabilities.credit - liabilities.debit;
+    document.getElementById("liab").innerHTML = finalValues.liabilities;
+}
+
+
+
+
 
 // let x = parseInt(document.getElementById('amount').value);
 function findValue(x) {
     if (document.getElementById("inputGroupSelect01").value === "1") {
         expenses.debit = expenses.debit + x;
-        document.getElementById("exp").innerHTML = expenses.debit - expenses.credit;
+        expensesValue();
+        // valuesTotal();
         document.getElementById("amount").value = null
         return expenses.debit
 
@@ -32,22 +81,24 @@ function findValue(x) {
     //to decrease the value of expense.
     else if (document.getElementById("inputGroupSelect01").value == "2") {
         expenses.credit = expenses.credit + x;
-        document.getElementById("exp").innerHTML = expenses.debit - expenses.credit;
+        expensesValue();
         document.getElementById("amount").value = null
         return expenses.credit
     }
     // Increase Assets
     else if (document.getElementById("inputGroupSelect01").value == "3") {
         assets.debit = assets.debit + x;
-        document.getElementById("ass").innerHTML = assets.debit - assets.credit;
+        assetsValue();
+        // valuesTotal();
         document.getElementById("amount").value = null
-        return assets.debit
+        return assets.debit;
 
     }
     // decrease asset
     else if (document.getElementById("inputGroupSelect01").value == "4") {
         assets.credit = assets.credit + x;
-        document.getElementById("ass").innerHTML = assets.debit - assets.credit;
+        assetsValue();
+        // valuesTotal();
         document.getElementById("amount").value = null
         return assets.credit
 
@@ -55,14 +106,14 @@ function findValue(x) {
     // Increase Income
     else if (document.getElementById("inputGroupSelect01").value == "5") {
         incomes.credit = incomes.credit + x;
-        document.getElementById("inc").innerHTML = incomes.credit - incomes.debit;
+        incomeValue();
         document.getElementById("amount").value = null
-        return income.credit
+        return incomes.credit
     }
     // decrease income
     else if (document.getElementById("inputGroupSelect01").value == "6") {
         incomes.debit = incomes.debit + x;
-        document.getElementById("inc").innerHTML = incomes.credit - incomes.debit;
+        incomeValue();
         document.getElementById("amount").value = null
         return incomes.debit
 
@@ -97,40 +148,23 @@ function findValue(x) {
         document.getElementById("amount").value = null
         return equity.debit
     } else {
-        alert("Invalid Head")
+        alert("Please Choose a Head")
     }
-    amountTotal();
 
 }
 
+//Values Total
+function valuesTotal() {
+    totals.trialBalanceAsset = finalValues.assets;
+    document.getElementById("total-trialBalanceDr").innerHTML = totals.trialBalanceAsset;
+    totals.trialBalanceEquityLiability = finalValues.liabilities + finalValues.equity;
+    document.getElementById("total-trialBalanceCr").innerHTML = totals.trialBalanceEquityLiability;
+    totals.profitLossIncome = finalValues.incomes;
+    document.getElementById("total-ProfitLossCr").innerHTML = totals.profitLossIncome;
+    totals.profitLossExpense = finalValues.expenses;
+    document.getElementById("total-ProfitLossDr").innerHTML = totals.profitLossExpense;
+    profitLoss = totals.profitLossIncome - totals.profitLossExpense;
+    document.getElementById("pofitLoss").innerHTML = profitLoss; //check this line and above
 
-function equityValue() {
-    let equity1 = equity.credit - equity.debit;
-    document.getElementById("equity").innerHTML = equity1;
-    return equity1
 
 }
-
-function liabilitiesValue() {
-    let liabilities1 = liabilities.credit - liabilities.debit;
-    document.getElementById("liab").innerHTML = liabilities1;
-    return liabilities1
-}
-
-function amountTotal() {
-    let total1 = liabilitiesValue() + equityValue();
-}
-
-
-
-let y = {
-    expensed: expenses.debit - expenses.credit,
-    assets: assets.debit - assets.credit,
-    incomes: incomes.credit - incomes.debit,
-    liabilities: liabilities.credit - liabilities.debit,
-    equity: equity.credit - equity.debit
-}
-
-/* let calcExpenses = {
-    y.expensed = assets.debit - assets.credit
-} */
