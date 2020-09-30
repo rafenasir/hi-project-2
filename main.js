@@ -163,8 +163,12 @@ function valuesTotal() {
     document.getElementById("total-ProfitLossCr").innerHTML = totals.profitLossIncome;
     totals.profitLossExpense = finalValues.expenses;
     document.getElementById("total-ProfitLossDr").innerHTML = totals.profitLossExpense;
+
+}
+
+function profitLossFigure() {
+    //debugger
     profitLoss = totals.profitLossIncome - totals.profitLossExpense;
-    document.getElementById("pofitLoss").innerHTML = profitLoss; //check this line and above
-
-
+    document.getElementById("profitLoss").innerHTML = profitLoss;
+    return profitLoss;
 }
