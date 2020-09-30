@@ -70,87 +70,89 @@ function liabilitiesValue() {
 
 // let x = parseInt(document.getElementById('amount').value);
 function findValue(x) {
-    if (document.getElementById("inputGroupSelect01").value === "1") {
-        expenses.debit = expenses.debit + x;
-        expensesValue();
-        // valuesTotal();
-        document.getElementById("amount").value = null
-        return expenses.debit
+    if (document.getElementById("amount").value) {
 
-    }
-    //to decrease the value of expense.
-    else if (document.getElementById("inputGroupSelect01").value == "2") {
-        expenses.credit = expenses.credit + x;
-        expensesValue();
-        document.getElementById("amount").value = null
-        return expenses.credit
-    }
-    // Increase Assets
-    else if (document.getElementById("inputGroupSelect01").value == "3") {
-        assets.debit = assets.debit + x;
-        assetsValue();
-        // valuesTotal();
-        document.getElementById("amount").value = null
-        return assets.debit;
+        if (document.getElementById("inputGroupSelect01").value === "1") {
+            expenses.debit = expenses.debit + x;
+            expensesValue();
+            // valuesTotal();
+            document.getElementById("amount").value = null
+            return expenses.debit
 
-    }
-    // decrease asset
-    else if (document.getElementById("inputGroupSelect01").value == "4") {
-        assets.credit = assets.credit + x;
-        assetsValue();
-        // valuesTotal();
-        document.getElementById("amount").value = null
-        return assets.credit
+        }
+        //to decrease the value of expense.
+        else if (document.getElementById("inputGroupSelect01").value == "2") {
+            expenses.credit = expenses.credit + x;
+            expensesValue();
+            document.getElementById("amount").value = null
+            return expenses.credit
+        }
+        // Increase Assets
+        else if (document.getElementById("inputGroupSelect01").value == "3") {
+            assets.debit = assets.debit + x;
+            assetsValue();
+            // valuesTotal();
+            document.getElementById("amount").value = null
+            return assets.debit;
 
-    }
-    // Increase Income
-    else if (document.getElementById("inputGroupSelect01").value == "5") {
-        incomes.credit = incomes.credit + x;
-        incomeValue();
-        document.getElementById("amount").value = null
-        return incomes.credit
-    }
-    // decrease income
-    else if (document.getElementById("inputGroupSelect01").value == "6") {
-        incomes.debit = incomes.debit + x;
-        incomeValue();
-        document.getElementById("amount").value = null
-        return incomes.debit
+        }
+        // decrease asset
+        else if (document.getElementById("inputGroupSelect01").value == "4") {
+            assets.credit = assets.credit + x;
+            assetsValue();
+            // valuesTotal();
+            document.getElementById("amount").value = null
+            return assets.credit
 
-    }
-    // liabilities increased
-    else if (document.getElementById("inputGroupSelect01").value == "7") {
-        liabilities.credit = liabilities.credit + x;
-        liabilitiesValue();
-        document.getElementById("amount").value = null
-        return liabilities.credit
+        }
+        // Increase Income
+        else if (document.getElementById("inputGroupSelect01").value == "5") {
+            incomes.credit = incomes.credit + x;
+            incomeValue();
+            document.getElementById("amount").value = null
+            return incomes.credit
+        }
+        // decrease income
+        else if (document.getElementById("inputGroupSelect01").value == "6") {
+            incomes.debit = incomes.debit + x;
+            incomeValue();
+            document.getElementById("amount").value = null
+            return incomes.debit
 
-    }
-    // liabilities decreased
-    else if (document.getElementById("inputGroupSelect01").value == "8") {
-        liabilities.debit = liabilities.debit + x;
-        liabilitiesValue();
-        document.getElementById("amount").value = null
-        return liabilities.debit
-    }
+        }
+        // liabilities increased
+        else if (document.getElementById("inputGroupSelect01").value == "7") {
+            liabilities.credit = liabilities.credit + x;
+            liabilitiesValue();
+            document.getElementById("amount").value = null
+            return liabilities.credit
 
-    // equity increased
-    else if (document.getElementById("inputGroupSelect01").value == "9") {
-        equity.credit = equity.credit + x;
-        equityValue();
-        document.getElementById("amount").value = null
-        return equity.credit
-    }
-    // equity decreased
-    else if (document.getElementById("inputGroupSelect01").value == "10") {
-        equity.debit = equity.debit + x;
-        equityValue();
-        document.getElementById("amount").value = null
-        return equity.debit
-    } else {
-        alert("Please Choose a Head")
-    }
+        }
+        // liabilities decreased
+        else if (document.getElementById("inputGroupSelect01").value == "8") {
+            liabilities.debit = liabilities.debit + x;
+            liabilitiesValue();
+            document.getElementById("amount").value = null
+            return liabilities.debit
+        }
 
+        // equity increased
+        else if (document.getElementById("inputGroupSelect01").value == "9") {
+            equity.credit = equity.credit + x;
+            equityValue();
+            document.getElementById("amount").value = null
+            return equity.credit
+        }
+        // equity decreased
+        else if (document.getElementById("inputGroupSelect01").value == "10") {
+            equity.debit = equity.debit + x;
+            equityValue();
+            document.getElementById("amount").value = null
+            return equity.debit
+        } else {
+            alert("Please Choose a Head")
+        }
+    }
 }
 
 //Values Total
