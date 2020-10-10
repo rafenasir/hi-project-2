@@ -167,7 +167,7 @@ function valuesTotal() {
     document.getElementById("total-ProfitLossDr").innerHTML = totals.profitLossExpense;
 
 }
-
+// calculation of Profit and Loss
 function profitLossFigure() {
     //debugger
     profitLoss = totals.profitLossIncome - totals.profitLossExpense;
